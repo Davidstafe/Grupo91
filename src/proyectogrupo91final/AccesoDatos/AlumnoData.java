@@ -127,7 +127,9 @@ public class AlumnoData {
     public void elimimarAlumno(Alumno alumno) {
         try {
             String sql = "DELETE FROM alumno WHERE dni=?";
+            
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, alumno.getDni());
             int filas = ps.executeUpdate();
 
             if (filas > 0) {
@@ -143,6 +145,8 @@ public class AlumnoData {
 
             String sql = "UPDATE alumno SET estado=0 WHERE DNI=?";
             PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, alumno.getDni());
             int filas = ps.executeUpdate();
             if (filas > 0) {
                 JOptionPane.showMessageDialog(null, "Alumno dado de baja exitosamente");
@@ -152,5 +156,29 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "Error en proceso" + ex.getMessage());;
         }
     }
+    
+    public void modificarAlumno(Alumno alumno){
+        try {
+            String sql="UPDATE alumno SET dni=?,apellido= ?, nombre =?,fechaNac=? estado =? WHERE idAlumno =?";
+                    
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(6, alumno.getIdAlumno());
+            ps.setInt(1, alumno.getDni());
+            ps.setString(2, alumno.getApellido());
+            ps.setString(3, alumno.getNombre());
+            ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
+            ps.setBoolean(5, alumno.isActivo());
+            ps.executeUpdate();
+            int filas = ps.executeUpdate();
+
+            if (filas > 0) {
+                JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    
 }
 
