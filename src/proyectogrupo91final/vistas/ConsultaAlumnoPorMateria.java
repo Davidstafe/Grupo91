@@ -38,6 +38,11 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JPanel {
         jLabel2.setText("Seleccione una Materia");
 
         jCBMaterias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBMaterias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCBMateriasMousePressed(evt);
+            }
+        });
 
         jTableConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,10 +89,14 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jCBMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCBMateriasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCBMateriasMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBMateriasMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

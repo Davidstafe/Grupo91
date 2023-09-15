@@ -47,13 +47,28 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione un alumno");
 
         JCBAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JCBAlumnoMouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Listado de materias");
 
         jRMateriasInscriptas.setText("Materias inscriptas");
+        jRMateriasInscriptas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRMateriasInscriptasMouseClicked(evt);
+            }
+        });
 
         jRMateriasNoInscriptas.setText("Materias no Inscriptas");
+        jRMateriasNoInscriptas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRMateriasNoInscriptasMouseClicked(evt);
+            }
+        });
 
         jTFormularioDeInscripciòn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,6 +91,11 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         });
 
         jBAnular.setText("Anular Inscripciòn");
+        jBAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAnularActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +178,22 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void JCBAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCBAlumnoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBAlumnoMouseClicked
+
+    private void jRMateriasInscriptasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRMateriasInscriptasMouseClicked
+
+    private void jRMateriasNoInscriptasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRMateriasNoInscriptasMouseClicked
+
+    private void jBAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBAnularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
