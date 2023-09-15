@@ -1,6 +1,4 @@
-/*
-IMPORTAR EL J CALENDER
- */
+
 package proyectogrupo91final.vistas;
 
 
@@ -53,7 +51,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Nombre:");
 
-        jLabel6.setText("Estado:");
+        jLabel6.setText("Estado/Activo:");
 
         jLabel7.setText("Fecha de Nacimiento: ");
 

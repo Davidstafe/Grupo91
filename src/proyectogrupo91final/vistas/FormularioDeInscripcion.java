@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectogrupo91final.vistas;
 
 /**
@@ -57,16 +53,16 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de materias");
 
         jRMateriasInscriptas.setText("Materias inscriptas");
-        jRMateriasInscriptas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRMateriasInscriptasMouseClicked(evt);
+        jRMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRMateriasInscriptasActionPerformed(evt);
             }
         });
 
         jRMateriasNoInscriptas.setText("Materias no Inscriptas");
-        jRMateriasNoInscriptas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRMateriasNoInscriptasMouseClicked(evt);
+        jRMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRMateriasNoInscriptasActionPerformed(evt);
             }
         });
 
@@ -172,7 +168,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_jBInscribirActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -183,17 +179,19 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JCBAlumnoMouseClicked
 
-    private void jRMateriasInscriptasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRMateriasInscriptasMouseClicked
-
-    private void jRMateriasNoInscriptasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRMateriasNoInscriptasMouseClicked
-
     private void jBAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBAnularActionPerformed
+
+    private void jRMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasActionPerformed
+       jRMateriasInscriptas.setEnabled(true);
+        jRMateriasNoInscriptas.setEnabled(false);
+    }//GEN-LAST:event_jRMateriasInscriptasActionPerformed
+
+    private void jRMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasActionPerformed
+        jRMateriasInscriptas.setEnabled(false);
+        jRMateriasNoInscriptas.setEnabled(true);
+    }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

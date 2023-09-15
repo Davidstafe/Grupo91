@@ -145,7 +145,7 @@
         <Property name="text" type="java.lang.String" value="Materias inscriptas"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRMateriasInscriptasMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRMateriasInscriptasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRMateriasNoInscriptas">
@@ -153,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="Materias no Inscriptas"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRMateriasNoInscriptasMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRMateriasNoInscriptasActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
