@@ -86,5 +86,32 @@ public class InscripcionData {
     
     return inscripciones;
  }
+ 
+    
+    public List<Inscripcion> obtenerInscripcionPorAlumno() {
+        List<Inscripcion> inscripciones = new ArrayList<>();
+        Inscripcion inscripcion = null;
+        String sql = "SELECT * FROM Inscripcion where idAlumno=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,inscripcion.getAlumno().getIdAlumno());
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                inscripcion = new Inscripcion();
+               
+                System.out.println("idInscripcion "+rs.getInt("idInscripcion"));
+                System.out.println("nota "+rs.getDouble("nota"));
+                System.out.println("idAlumno "+rs.getInt("idAlumno"));
+                System.out.println("idMateria "+rs.getInt("idMateria"));
+             
+            }
+
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error");
+        }
+        return inscripciones;
+    }
     
 }
+
