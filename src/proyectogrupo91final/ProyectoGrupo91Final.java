@@ -23,7 +23,7 @@ public class ProyectoGrupo91Final {
        MateriaData b= new MateriaData();
        
                
-       b.buscarMateria(6);
+       b.buscarMateria(1);
 //       b.guardarMateria(a);
        
 
