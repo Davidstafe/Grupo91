@@ -18,24 +18,32 @@ public class ProyectoGrupo91Final {
 
 
 
-      // Materia a= new Materia(1,"inf", 1, true);
-
+       /*Materia a= new Materia(1,"inf", 1, true);
+       b.guardarMateria(a);
+       System.out.println(a);
+        */
+       
+       
+       /* BUSCAR MATERIA: CORRECTO
        MateriaData b= new MateriaData();
-       
-               
        b.buscarMateria(1);
-//       b.guardarMateria(a);
+       /*/
+
+
+       //MODIFICAR MATERIA:
+       Materia INFO;
+        INFO = new Materia(6, "infor", 5, true);
+       MateriaData b= new MateriaData();
+       b.modificarMateria(INFO);
        
 
-//        System.out.println(a);
-//        
-//      b.buscarMateria();
-      // System.out.println(a);
-      
-       // Materia materiaEncontrada = b.buscarMateria(6);
-        //System.out.println("Encontrada");
         
-       // System.out.println(a);
+     
+       /* ESTO ES DE ALGUNO? O SE PUEDE ELIMINAR?¿
+        Materia materiaEncontrada = b.buscarMateria(6);
+        System.out.println("Encontrada");
+        
+        System.out.println(a);/*/
         
         
 
