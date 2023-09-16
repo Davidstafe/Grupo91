@@ -39,7 +39,7 @@ public class MateriaData {
     }
     public Materia buscarMateria(int idMateria) {
         Materia materia = null;
-        String sql = "SELECT nombre, anioMateria FROM materia WHERE idMateria = ? and estado= 1";
+        String sql = "SELECT nombre, anioMateria FROM materia WHERE idMateria = ? ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class MateriaData {
                 materia.setIdMateria(idMateria);//faltaba para que me guarde el id y no tire alarma 1402
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("anioMateria"));
-                System.out.println("materia encontrada");
+                System.out.println("materia encontrada: "+materia.getNombre());
 
             } else {
 
@@ -68,7 +68,7 @@ public class MateriaData {
 
     public void modificarMateria(Materia materia) {
 
-        String sql = "UPDATE alumno SET nombre = ?, anioMateria = ?, WHERE idMateria = ? ";
+        String sql = "UPDATE alumno SET materia (nombre = ?, anioMateria = ?, WHERE idMateria = ? )";
 
         PreparedStatement ps = null;
 

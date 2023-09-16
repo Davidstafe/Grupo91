@@ -12,15 +12,42 @@ public class ProyectoGrupo91Final {
 
    
     public static void main(String[] args) {
+
        
         Connection con = Conexion.getConexion();
         MateriaData a = new MateriaData();
         AlumnoData s = new AlumnoData();
         InscripcionData d = new InscripcionData();
+
+        
+        
+       
+
+
+
+       /*Materia a= new Materia(1,"inf", 1, true);
+       b.guardarMateria(a);
+       System.out.println(a);
+        */
+       
+       
+       /* BUSCAR MATERIA: CORRECTO
+       MateriaData b= new MateriaData();
+       b.buscarMateria(1);
+       /*/
+
+
+       //MODIFICAR MATERIA:
+       Materia INFO;
+        INFO = new Materia(6, "infor", 5, true);
+       MateriaData b= new MateriaData();
+       b.modificarMateria(INFO);
+
        
         Alumno Karen=s.buscarAlumnoID(3);
         Materia Inf=a.buscarMateria(5);
          Inscripcion q=new Inscripcion( 5.3,Karen,  Inf);
+
 
        d.guardarInscripcion(q);
      
@@ -48,3 +75,17 @@ public class ProyectoGrupo91Final {
 //       // System.out.println(a);
 //        
 //      
+
+        
+     
+       /* ESTO ES DE ALGUNO? O SE PUEDE ELIMINAR?¿
+        Materia materiaEncontrada = b.buscarMateria(6);
+        System.out.println("Encontrada");
+        
+        System.out.println(a);/*/
+        
+        
+
+
+
+
