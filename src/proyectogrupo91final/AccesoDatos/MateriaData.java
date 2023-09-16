@@ -48,6 +48,7 @@ public class MateriaData {
 
             if (rs.next()) {
                 materia = new Materia();
+                materia.setIdMateria(idMateria);//faltaba para que me guarde el id y no tire alarma 1402
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("anioMateria"));
                 System.out.println("materia encontrada");
