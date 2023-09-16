@@ -1,6 +1,8 @@
 
 package proyectogrupo91final.vistas;
 
+import javax.swing.ButtonGroup;
+
 /**
  *
  * @author david
@@ -23,6 +25,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         JCBAlumno = new javax.swing.JComboBox<>();
@@ -52,6 +55,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Listado de materias");
 
+        buttonGroup1.add(jRMateriasInscriptas);
         jRMateriasInscriptas.setText("Materias inscriptas");
         jRMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +63,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(jRMateriasNoInscriptas);
         jRMateriasNoInscriptas.setText("Materias no Inscriptas");
         jRMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,18 +189,24 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBAnularActionPerformed
 
     private void jRMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasActionPerformed
-       jRMateriasInscriptas.setEnabled(true);
-        jRMateriasNoInscriptas.setEnabled(false);
+//   ButtonGroup botones= new ButtonGroup();
+//        botones.add(jRMateriasInscriptas);
+//    botones.add (jRMateriasNoInscriptas);
+            
+    jRMateriasNoInscriptas.setEnabled(false);
     }//GEN-LAST:event_jRMateriasInscriptasActionPerformed
 
     private void jRMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasActionPerformed
-        jRMateriasInscriptas.setEnabled(false);
-        jRMateriasNoInscriptas.setEnabled(true);
+       jRMateriasInscriptas.setEnabled(false);
+        
     }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
-
+ 
+    
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JCBAlumno;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBAnular;
     private javax.swing.JButton jBInscribir;
     private javax.swing.JButton jBSalir;
