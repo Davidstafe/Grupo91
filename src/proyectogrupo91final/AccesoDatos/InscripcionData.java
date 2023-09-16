@@ -5,7 +5,7 @@
  */
 package proyectogrupo91final.AccesoDatos;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectogrupo91final.entidades.Alumno;
+
 /**
  *
  * @author HP
@@ -38,32 +38,34 @@ public class InscripcionData {
     }
     
     public void guardarInscripcion(Inscripcion insc){
-       String sql= "INSERT INTO `inscripcion`( `nota`,`idAlumno`, `idMateria`)"+" VALUES (?,?,?)";
+       String sql= "INSERT INTO inscripcion( nota,idAlumno, idMateria)"+" VALUES (?,?,?)";
         try { 
-            PreparedStatement ps=con.prepareStatement(sql);
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
             ps.setDouble(1, insc.getNota());
-            ps.setInt(2, insc.getAlumno().getIdAlumno());
-            ps.setInt(3,insc.getMateria().getIdMateria());
+          ps.setInt(2, insc.getAlumno().getIdAlumno());
+          ps.setInt(3,insc.getMateria().getIdMateria());
             
             ps.executeUpdate();
-            ResultSet rs=ps.executeQuery();
+
+            ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                 insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                insc.setIdInscripcion(rs.getInt("idAlumno"));
-                insc.setIdInscripcion(rs.getInt("idMateria"));
-          JOptionPane.showMessageDialog(null, "Inscripcion  realizada");
-            }else{
+                insc.setIdInscripcion(rs.getInt(1));
+//                insc.setIdInscripcion(rs.getInt("idAlumno"));
+//                insc.setIdInscripcion(rs.getInt("idMateria"));
+                JOptionPane.showMessageDialog(null, "Inscripcion  realizada");
+            } else {
                 JOptionPane.showMessageDialog(null, "dato no ingresado");
             }
-            
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al cargar datos");
+            JOptionPane.showMessageDialog(null, "Error al cargar datos"+ex.getMessage());
         }
-        
+
     }
- public List<Inscripcion> obtenerInscripcion(){
-    List<Inscripcion> inscripciones =new ArrayList<>();
+
+    public List<Inscripcion> obtenerInscripcion() {
+        List<Inscripcion> inscripciones =new ArrayList<>();
     String sql="SELECT `idInscripcion`, `nota`, `idAlumno`, `idMateria` FROM `inscripcion`";
         try {
             PreparedStatement ps= con.prepareStatement(sql);

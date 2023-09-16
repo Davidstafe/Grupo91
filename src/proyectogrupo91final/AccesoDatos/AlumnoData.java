@@ -47,31 +47,52 @@ public class AlumnoData {
     }
 
    
-    public void buscarAlumnoID(Alumno alumno){
+    public Alumno buscarAlumnoID(int idAlumno){
         
-        
-        String sql="SELECT * FROM alumno WHERE (inscripcion.idAlumno=?)"; // como identificamosa que id se refiere el usuario?
-        
+        //7777777777777777777777777777777777777777
+//        String sql="SELECT * FROM alumno WHERE idAlumno=? "; // como identificamosa que id se refiere el usuario?
+       String sql  ="SELECT `idAlumno`, `dni`, `apellido`, `nombre`, `fechaNac`, `estado` FROM `alumno` WHERE idAlumno=3";
+        Alumno alumno=null;
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, alumno.getIdAlumno());
-            ps.executeUpdate();
-            ResultSet resultado = ps.executeQuery();
-            while (resultado.next()) {
-                System.out.println("Id" + resultado.getInt("idAlumno"));
-                System.out.println("DNI" + resultado.getInt("dni"));
-                System.out.println("Apellido" + resultado.getString("apellido"));
-                System.out.println("Nombre" + resultado.getString("nombre"));
-                System.out.println("Estado" + resultado.getBoolean("estado"));
+            ps.setInt(1, idAlumno);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                alumno = new Alumno();
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setApellido(rs.getString("Apellido"));
+                alumno.setIdAlumno(idAlumno);
+                alumno.setActivo(true);
+                alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
+                System.out.println("alumno encontrado");
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No existe la materia");
 
             }
-
             ps.close();
+            
+//            while (resultado.next()) {
+//                alumno=new Alumno();
+//                System.out.println("Id" + resultado.getInt("idAlumno"));
+//                System.out.println("DNI" + resultado.getInt("dni"));
+//                System.out.println("Apellido" + resultado.getString("apellido"));
+//                System.out.println("Nombre" + resultado.getString("nombre"));
+//                System.out.println("Estado" + resultado.getBoolean("estado"));
+//
+//            }
+//
+//            ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se encuentra alumno con ese id" + ex.getMessage());
+     
         }
+        return alumno;
     }
 
     public void buscarAlumnoDni(Alumno alumno) {

@@ -4,11 +4,11 @@ package proyectogrupo91final.entidades;
 
 public class Inscripcion {
     private int idInscripcion;
-    private Alumno alumno;
+     private Double nota;
+     private Alumno alumno;
     private Materia materia;
-    private Double nota;
-
-    public Inscripcion(Alumno alumno, Materia materia, Double nota) {
+   
+    public Inscripcion(Double nota,Alumno alumno, Materia materia) {
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
