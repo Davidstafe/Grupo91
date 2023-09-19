@@ -3,14 +3,9 @@ package proyectogrupo91final;
 
 import java.sql.Connection;
 import proyectogrupo91final.AccesoDatos.*;
-//import proyectogrupo91final.AccesoDatos.Conexion;
-//import proyectogrupo91final.AccesoDatos.MateriaData;
 import proyectogrupo91final.entidades.*;
-//import proyectogrupo91final.entidades.Materia;
-
 public class ProyectoGrupo91Final {
 
-   
     public static void main(String[] args) {
 
        
@@ -38,19 +33,30 @@ public class ProyectoGrupo91Final {
 
 
        //MODIFICAR MATERIA:
-       Materia INFO;
-        INFO = new Materia(6, "infor", 5, true);
-       MateriaData b= new MateriaData();
-       b.modificarMateria(INFO);
+//       Materia INFO;
+//        INFO = new Materia(6, "infor", 5, true);
+//       MateriaData b= new MateriaData();
+//       b.modificarMateria(INFO);
 
        
-        Alumno Karen=s.buscarAlumnoID(3);
-        Materia Inf=a.buscarMateria(5);
-         Inscripcion q=new Inscripcion( 5.3,Karen,  Inf);
+//        Alumno Karen=s.buscarAlumnoID(3);
+//        Materia Inf=a.buscarMateria(5);
+//         Inscripcion q=new Inscripcion( 5.3,Karen,  Inf);
 
 
-       d.guardarInscripcion(q);
+//       d.guardarInscripcion(q);
      
+        for (Inscripcion inscripcion : d.obtenerInscripcionPorAlumno(4) ) {
+            System.out.println("id "+inscripcion.getIdInscripcion());
+            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
+            System.out.println("Materia "+inscripcion.getMateria().getNombre());
+        }
+
+
+
+
+
+
 
     }
 }

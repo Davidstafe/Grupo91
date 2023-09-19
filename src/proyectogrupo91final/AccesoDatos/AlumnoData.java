@@ -71,11 +71,11 @@ public class AlumnoData {
 
             } else {
 
-                JOptionPane.showMessageDialog(null, "No existe la materia");
+                JOptionPane.showMessageDialog(null, "No existe el alumno");
 
             }
             ps.close();
-            
+
 //            while (resultado.next()) {
 //                alumno=new Alumno();
 //                System.out.println("Id" + resultado.getInt("idAlumno"));
