@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,7 +96,7 @@ public class MateriaData {
         
     }
     
-    /*public void eliminarMateria(int id)  {
+    public void eliminarMateria(int id)  {
         
         try{
             String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ? ";
@@ -113,30 +114,25 @@ public class MateriaData {
         
     } 
 
-    public List<Materia> listarMateria() {
-      List <Materia>  mate = new Arraylist<>();
-        Try
-        {
-
-            String sql = "Select * From materia where estado = 1";
-
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+    public List<Materia> listarMateria()  {
+        
+      List<Materia> mat = new ArrayList<>();
+        
+      String sql = "Select * From materia where estado = 1";
+      
+      try{
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Materia materia = new Materia();
-                materia.getNombre(rs.getString("nombre"));
-                materia.getAnioMateria(rs.getInt("anioMateria"));
-                materias.add
-
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnioMateria(rs.getInt("anioMateria"));
+                mat.add(materia);
             }
-            ps.close();
-
-        }catch(SQLException ex) {
-            JOptionPane.show;
-
-
-                
-    }return materias;
-    }*/
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se encontro la matriz materia");
+        }return mat;
+    }
 }
