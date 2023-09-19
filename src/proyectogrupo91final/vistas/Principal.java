@@ -6,6 +6,7 @@
 package proyectogrupo91final.vistas;
 
 import proyectogrupo91final.AccesoDatos.AlumnoData;
+import proyectogrupo91final.AccesoDatos.MateriaData;
 
 /**
  *
@@ -13,7 +14,7 @@ import proyectogrupo91final.AccesoDatos.AlumnoData;
  */
 public class Principal extends javax.swing.JFrame {
 
-    private AlumnoData ad;
+    private MateriaData ad;
 
     
     public Principal() {
@@ -41,7 +42,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItemManejoDeInscripciones = new javax.swing.JMenuItem();
         jMenuItemManipulacion = new javax.swing.JMenuItem();
         jMConsultas = new javax.swing.JMenu();
-        jMenuItemAlumnosXMateria = new javax.swing.JMenuItem();
+        jMXM = new javax.swing.JMenuItem();
         jMSalir = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -110,8 +111,13 @@ public class Principal extends javax.swing.JFrame {
 
         jMConsultas.setText("Consultas");
 
-        jMenuItemAlumnosXMateria.setText("Alumnos por materia");
-        jMConsultas.add(jMenuItemAlumnosXMateria);
+        jMXM.setText("Alumnos por materia");
+        jMXM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMXMActionPerformed(evt);
+            }
+        });
+        jMConsultas.add(jMXM);
 
         jMenuBar1.add(jMConsultas);
 
@@ -152,6 +158,16 @@ public class Principal extends javax.swing.JFrame {
         Escritorio.moveToFront(vistaCargaNota);
         
     }//GEN-LAST:event_jMenuItemManipulacionActionPerformed
+
+    private void jMXMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMXMActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(ad);
+        vistaConsultaAlumnoPorMateria.setVisible(true);
+        Escritorio.add(vistaConsultaAlumnoPorMateria);
+        Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
+    }//GEN-LAST:event_jMXMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMConsultas;
     private javax.swing.JMenu jMMateria;
     private javax.swing.JMenu jMSalir;
+    private javax.swing.JMenuItem jMXM;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -202,7 +219,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItemAlumnosXMateria;
     private javax.swing.JMenuItem jMenuItemFormulario;
     private javax.swing.JMenuItem jMenuItemFormularioDeMateria;
     private javax.swing.JMenuItem jMenuItemManejoDeInscripciones;
