@@ -141,7 +141,26 @@ ps.close();
     
     return materia;
 }
-    
+   public void borrarInscripcionMateriaAlumno(int idAlumno,int idMateria){
+       String sql="DELETE FROM `inscripcion` WHERE `idAlumno`=? and idMateria=?";
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+           int borrar= ps.executeUpdate();
+            if (borrar>0) {
+                JOptionPane.showMessageDialog(null, "Inscripcion borrada");
+                
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Inscripcion no borrada");
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error al cargar");
+        }
+       
+   } 
     public void actualizarNota(double nota,int idAlumno,int idMateria){
         String sql="UPDATE inscripcion SET nota= ? WHERE idAlumno=? AND idMateria=?";
         try {
