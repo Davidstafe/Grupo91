@@ -38,6 +38,15 @@ public class ProyectoGrupo91Final {
 //       MateriaData b= new MateriaData();
 //       b.modificarMateria(INFO);
 
+        //Listar materia:
+        
+       
+        for (Materia  listarM : a.listarMateria()) {
+                
+            System.out.println(""+ listarM.getNombre());
+            System.out.println(""+listarM.getAnioMateria());
+            System.out.println(""+listarM.getIdMateria());
+        }
        
 //        Alumno Karen=s.buscarAlumnoID(3);
 //        Materia Inf=a.buscarMateria(5);
@@ -51,6 +60,7 @@ public class ProyectoGrupo91Final {
 //            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
 //            System.out.println("Materia "+inscripcion.getMateria().getNombre());
 //        }
+
 
 
 //d.actualizarNota(8.2, 3, 5);

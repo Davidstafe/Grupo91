@@ -95,10 +95,13 @@
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAlumnosXMateria">
+            <MenuItem class="javax.swing.JMenuItem" name="jMXM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alumnos por materia"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMXMActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
