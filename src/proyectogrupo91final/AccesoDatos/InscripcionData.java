@@ -6,6 +6,7 @@
 package proyectogrupo91final.AccesoDatos;
 
 
+import com.sun.webkit.graphics.GraphicsDecoder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -141,6 +142,30 @@ ps.close();
     return materia;
 }
     
+    public void actualizarNota(double nota,int idAlumno,int idMateria){
+        String sql="UPDATE inscripcion SET nota= ? WHERE idAlumno=? AND idMateria=?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1, nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+
+            int completo = ps.executeUpdate();
+            if (completo > 0) {
+                JOptionPane.showMessageDialog(null, "Nota modificada");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "nota no cargada");
+            }
+
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de datos");
+        }
+        
+    }
     
 }
 

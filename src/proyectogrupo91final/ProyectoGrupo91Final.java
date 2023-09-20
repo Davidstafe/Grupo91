@@ -46,14 +46,14 @@ public class ProyectoGrupo91Final {
 
 //       d.guardarInscripcion(q);
      
-        for (Inscripcion inscripcion : d.obtenerInscripcionPorAlumno(4) ) {
-            System.out.println("id "+inscripcion.getIdInscripcion());
-            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
-            System.out.println("Materia "+inscripcion.getMateria().getNombre());
-        }
+//        for (Inscripcion inscripcion : d.obtenerInscripcionPorAlumno(4) ) {
+//            System.out.println("id "+inscripcion.getIdInscripcion());
+//            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
+//            System.out.println("Materia "+inscripcion.getMateria().getNombre());
+//        }
 
 
-
+//d.actualizarNota(8.2, 3, 5);
 
 
 
