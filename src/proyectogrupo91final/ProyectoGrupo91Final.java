@@ -13,11 +13,22 @@ public class ProyectoGrupo91Final {
         MateriaData a = new MateriaData();
         AlumnoData s = new AlumnoData();
         InscripcionData d = new InscripcionData();
-
+//        
+//        for (Materia materia: d.obtenerMateriasNoCursada(5)) {
+//            System.out.println("nombre = "+materia.getNombre());
+//        }
+        for (Alumno alumno : d.obtenerAlumnosXMaterias(4)) {
+            System.out.println("nombre del alumno: "+alumno.getApellido());
+        }
         
-        
-       
-
+//         
+//        for (Materia  listarM : d.obtenerMateriasCursadas(5)) {
+//                
+//            System.out.println(""+ listarM.getNombre());
+//            System.out.println(""+listarM.getAnioMateria());
+//            System.out.println(""+listarM.getIdMateria());
+//        }
+//
 
 
        /*Materia a= new Materia(1,"inf", 1, true);
@@ -41,12 +52,12 @@ public class ProyectoGrupo91Final {
         //Listar materia:
         
        
-        for (Materia  listarM : a.listarMateria()) {
-                
-            System.out.println(""+ listarM.getNombre());
-            System.out.println(""+listarM.getAnioMateria());
-            System.out.println(""+listarM.getIdMateria());
-        }
+//        for (Materia  listarM : a.listarMateria()) {
+//                
+//            System.out.println(""+ listarM.getNombre());
+//            System.out.println(""+listarM.getAnioMateria());
+//            System.out.println(""+listarM.getIdMateria());
+//        }
        
 //        Alumno Karen=s.buscarAlumnoID(3);
 //        Materia Inf=a.buscarMateria(5);
