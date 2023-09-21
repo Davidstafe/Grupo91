@@ -49,9 +49,9 @@ public class AlumnoData {
    
     public Alumno buscarAlumnoID(int idAlumno){
         
-        //7777777777777777777777777777777777777777
+       
 //        String sql="SELECT * FROM alumno WHERE idAlumno=? "; // como identificamosa que id se refiere el usuario?
-       String sql  ="SELECT `idAlumno`, `dni`, `apellido`, `nombre`, `fechaNac`, `estado` FROM `alumno` WHERE idAlumno=3";
+       String sql  ="SELECT `idAlumno`, `dni`, `apellido`, `nombre`, `fechaNac`, `estado` FROM `alumno` WHERE idAlumno=?";
         Alumno alumno=null;
 
         try {
@@ -76,17 +76,6 @@ public class AlumnoData {
             }
             ps.close();
 
-//            while (resultado.next()) {
-//                alumno=new Alumno();
-//                System.out.println("Id" + resultado.getInt("idAlumno"));
-//                System.out.println("DNI" + resultado.getInt("dni"));
-//                System.out.println("Apellido" + resultado.getString("apellido"));
-//                System.out.println("Nombre" + resultado.getString("nombre"));
-//                System.out.println("Estado" + resultado.getBoolean("estado"));
-//
-//            }
-//
-//            ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se encuentra alumno con ese id" + ex.getMessage());
@@ -95,11 +84,11 @@ public class AlumnoData {
         return alumno;
     }
 
-    public void buscarAlumnoDni(Alumno alumno) {
+    public void buscarAlumnoDni(int dni) {
         String sql = "SELECT * FROM alumno WHERE alumno.dni=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, alumno.getDni());
+            ps.setInt(1,  dni);
             ps.executeUpdate();
             ResultSet resultado = ps.executeQuery();
             while (resultado.next()) {
@@ -122,7 +111,7 @@ public class AlumnoData {
     public List<Alumno> listarAlumnos() { //ver video
         List<Alumno> alumnos = new ArrayList<>();
 
-        String sql = "SELECT * FROM alumno WHERE activo=true";
+        String sql = "SELECT * FROM alumno WHERE estado=true";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet resultado = ps.executeQuery();
