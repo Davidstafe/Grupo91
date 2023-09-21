@@ -18,7 +18,7 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     public ConsultaAlumnoPorMateria(MateriaData ad) {
         initComponents();
         this.ad = ad;
-        //cargarCombo();
+        cargarCombo();
     }
 
     
@@ -36,11 +36,6 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione una Materia");
 
-        jCBMaterias.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jCBMateriasMousePressed(evt);
-            }
-        });
         jCBMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBMateriasActionPerformed(evt);
@@ -60,8 +55,8 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableConsulta);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -97,10 +92,6 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCBMateriasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCBMateriasMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCBMateriasMousePressed
-
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
         // TODO add your handling code here:
         
@@ -116,16 +107,17 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     private javax.swing.JTable jTableConsulta;
     // End of variables declaration//GEN-END:variables
 
-    /*private void cargarCombo(){
+  private void cargarCombo(){
         jCBMaterias.removeAll();
         jCBMaterias.addItem("Seleccione materia");
         
         for (Materia listarMat : ad.listarMateria()){
             jCBMaterias.addItem(listarMat.getNombre());
             
-        }*/
+        }
         
         
     }
+}
 
 
