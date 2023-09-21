@@ -5,14 +5,9 @@
  */
 package proyectogrupo91final.vistas;
 
-import java.awt.PopupMenu;
-import java.time.LocalDate;
-import java.util.List;
-import proyectogrupo91final.AccesoDatos.AlumnoData;
-import proyectogrupo91final.AccesoDatos.MateriaData;
-import proyectogrupo91final.entidades.Alumno;
-import proyectogrupo91final.entidades.Materia;
+import proyectogrupo91final.AccesoDatos.*;
 
+import proyectogrupo91final.entidades.*;
 
 /**
  *
@@ -126,8 +121,5 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         }
        
     }*/
-    
-     
-    
-
+         
 }
