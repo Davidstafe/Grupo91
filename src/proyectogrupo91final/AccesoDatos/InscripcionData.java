@@ -222,14 +222,14 @@ ps.close();
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setActivo(rs.getBoolean("activo"));
+                alumno.setActivo(rs.getBoolean("estado"));
                 alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
                 alumnos.add(alumno);
 
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "error al obtener materias");
+            JOptionPane.showMessageDialog(null, "error al obtener materias"+ex.getMessage());
         }
 
         return alumnos;
