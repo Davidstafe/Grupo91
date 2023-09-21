@@ -5,25 +5,29 @@
  */
 package proyectogrupo91final.vistas;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.List;
 import proyectogrupo91final.AccesoDatos.*;
+
 
 import proyectogrupo91final.entidades.*;
 
-/**
- *
- * @author HP
- */
+
 public class cargaDeNotas extends javax.swing.JInternalFrame {
 
-    private MateriaData ad;
-    public cargaDeNotas(MateriaData ad) {
+    private AlumnoData ad ;
+    public cargaDeNotas(AlumnoData ad) {
         initComponents();
+      
         this.ad = ad;
-        //cargarCombo();
+        cargarCombo();
+        
     }
 
   
-    @SuppressWarnings("unchecked")
+
+  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -68,25 +72,25 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jLabel2))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel1)))
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(43, 43, 43)
+                .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(178, Short.MAX_VALUE))
         );
@@ -96,7 +100,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
         // TODO add your handling code here:
-        Materia listarM = (Materia )jcbAlumno.getSelectedItem();
+       // Alumno listarM = (Alumno )jcbAlumno.getSelectedItem();
        
     }//GEN-LAST:event_jcbAlumnoActionPerformed
 
@@ -106,20 +110,27 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTListado;
-    private javax.swing.JComboBox<String> jcbAlumno;
+    private javax.swing.JComboBox<Alumno> jcbAlumno;
     // End of variables declaration//GEN-END:variables
 
-    /*private void cargarCombo(){
+    private void cargarCombo(){
         
-//        AlumnoData alumnoData = new AlumnoData(); 
-//        List<Alumno> listaAlumnos = alumnoData.listarAlumnos();
-        jcbAlumno.removeAllItems();;
-        jcbAlumno.addItem(" a");
-         for (Materia  listarM : ad.listarMateria()) {
-                
-           jcbAlumno.addItem(listarM.getNombre());
+        //AlumnoData alumnoData = new AlumnoData(); 
+        List<Alumno> listaAlumnos = ad.listarAlumnos();
+        //jcbAlumno.removeAllItems();
+        System.out.println(listaAlumnos.get(0).getNombre());
+        for (Alumno alumno :listaAlumnos) {
+             jcbAlumno.addItem(alumno);
+             
         }
+        
+//        ad.listarAlumnos().forEach((listarM) -> {
+//            jcbAlumno.addItem(listarM.getNombre());
+//             System.out.println(listarM.getNombre());
+//        });
        
-    }*/
+//            for (Alumno alumno :ad.listarAlumnos()) {
+//             jcbAlumno.addItem(alumno.getNombre());
+//    }
          
-}
+}}
