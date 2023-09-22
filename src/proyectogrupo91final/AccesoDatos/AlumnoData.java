@@ -22,7 +22,7 @@ public class AlumnoData {
     }
 
     public void guardarAlumno(Alumno alumno) {
-        String sql = "INSERT INTO `alumno`(`dni`, `apellido`, `nombre`, `fechaNac`, `activo`)" + " VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO `alumno`(`dni`, `apellido`, `nombre`, `fechaNac`, `estado`)" + " VALUES (?,?,?,?,?)";
         try {//preparacion de comando o secuencias
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);//me pasa las claves generadas por alumno creado
             ps.setInt(1, alumno.getDni());
