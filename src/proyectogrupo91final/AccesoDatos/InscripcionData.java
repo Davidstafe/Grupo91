@@ -222,7 +222,7 @@ ps.close();
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setActivo(rs.getBoolean("estado"));
+                alumno.setEstado(rs.getBoolean("estado"));
                 alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
                 alumnos.add(alumno);
 

@@ -9,18 +9,18 @@ public class ProyectoGrupo91Final {
     public static void main(String[] args) {
 
        
-        Connection con = Conexion.getConexion();
-        MateriaData a = new MateriaData();
-        AlumnoData s = new AlumnoData();
-        InscripcionData d = new InscripcionData();
-//        
-//        for (Materia materia: d.obtenerMateriasNoCursada(5)) {
-//            System.out.println("nombre = "+materia.getNombre());
+//        Connection con = Conexion.getConexion();
+//        MateriaData a = new MateriaData();
+//        AlumnoData s = new AlumnoData();
+//        InscripcionData d = new InscripcionData();
+////        
+////        for (Materia materia: d.obtenerMateriasNoCursada(5)) {
+////            System.out.println("nombre = "+materia.getNombre());
+////        }
+//        for (Alumno alumno : d.obtenerAlumnosXMaterias(3)) {
+//            System.out.println("nombre del alumno: "+alumno.getApellido());
 //        }
-        for (Alumno alumno : d.obtenerAlumnosXMaterias(4)) {
-            System.out.println("nombre del alumno: "+alumno.getApellido());
-        }
-        
+//        
 //         
 //        for (Materia  listarM : d.obtenerMateriasCursadas(5)) {
 //                

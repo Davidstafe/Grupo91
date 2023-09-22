@@ -29,7 +29,7 @@ public class AlumnoData {
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
-            ps.setBoolean(5, alumno.isActivo());
+            ps.setBoolean(5, alumno.isEstado());
             ps.executeUpdate();
             //hasta aca se armo la sentencia insert a la base de datos
             ResultSet rs = ps.getGeneratedKeys();  //aca nos devuelve la clave generada en el paso anterior
@@ -65,7 +65,7 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setApellido(rs.getString("Apellido"));
                 alumno.setIdAlumno(idAlumno);
-                alumno.setActivo(true);
+                alumno.setEstado(true);
                 alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
                 System.out.println("alumno encontrado");
 
@@ -114,15 +114,18 @@ public class AlumnoData {
         String sql = "SELECT * FROM alumno WHERE estado=true";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet resultado = ps.executeQuery();
-            while (resultado.next()) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
                 Alumno alumno = new Alumno();
-                System.out.println("Id" + resultado.getInt("idAlumno"));
-                System.out.println("DNI" + resultado.getInt("dni"));
-                System.out.println("Apellido" + resultado.getString("apellido"));
-                System.out.println("Nombre" + resultado.getString("nombre"));
-                System.out.println("Estado" + resultado.getBoolean("estado"));
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setEstado(rs.getBoolean("estado"));
+                alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
                 alumnos.add(alumno);
+
+                        
             }
 
             ps.close();
@@ -177,7 +180,7 @@ public class AlumnoData {
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
-            ps.setBoolean(5, alumno.isActivo());
+            ps.setBoolean(5, alumno.isEstado());
             ps.executeUpdate();
             int filas = ps.executeUpdate();
 
