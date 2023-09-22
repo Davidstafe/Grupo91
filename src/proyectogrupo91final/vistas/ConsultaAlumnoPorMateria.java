@@ -5,6 +5,7 @@
  */
 package proyectogrupo91final.vistas;
 
+import java.util.List;
 import proyectogrupo91final.AccesoDatos.MateriaData;
 import proyectogrupo91final.entidades.Materia;
 
@@ -99,7 +100,7 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
         // TODO add your handling code here:
         
-        Materia listM =(Materia) jCBMaterias.getSelectedItem();
+//        Materia listM =(Materia) jCBMaterias.getSelectedItem();
     }//GEN-LAST:event_jCBMateriasActionPerformed
 
 
@@ -112,13 +113,21 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
   private void cargarCombo(){
-        jCBMaterias.removeAll();
-        jCBMaterias.addItem("Seleccione materia");
-        
-        for (Materia listarMat : ad.listarMateria()){
-            jCBMaterias.addItem(listarMat.getNombre());
-            
+//        jCBMaterias.removeAll();
+//        jCBMaterias.addItem("Seleccione materia");
+//        
+//        for (Materia listarMat : ad.listarMateria()){
+//            jCBMaterias.addItem(listarMat.getNombre());
+//            
+//        }
+            List<Materia> listaMateria = ad.listarMateria();
+        //jcbAlumno.removeAllItems();
+        System.out.println(listaMateria.get(0).getNombre());
+        for (Materia materia :listaMateria) {
+             jCBMaterias.addItem(materia.toString());
+             
         }
+     
         
         
     }
