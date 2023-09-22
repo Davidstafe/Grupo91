@@ -155,7 +155,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        cargaDeNotas vistaCargaNota = new cargaDeNotas(ad,ida,as);
+        cargaDeNotas vistaCargaNota = new cargaDeNotas(ad,ida);
         vistaCargaNota.setVisible(true);
         Escritorio.add(vistaCargaNota);
         Escritorio.moveToFront(vistaCargaNota);

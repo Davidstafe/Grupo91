@@ -23,7 +23,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private Materia mat;
     private Inscripcion i;
 
-    public cargaDeNotas(AlumnoData ad, InscripcionData ida, MateriaData as) {
+    public cargaDeNotas(AlumnoData ad, InscripcionData ida) {
 
         initComponents();
 
@@ -33,6 +33,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         Alumno alu = (Alumno) jcbAlumno.getSelectedItem();
         List<Alumno> listaAlumnos = ad.listarAlumnos();
         List<Materia> listarMat = ida.obtenerMateriasCursadas(alu.getIdAlumno());
+        
         cargarCombo();
         armarTabla();
         rellenarTabla();
