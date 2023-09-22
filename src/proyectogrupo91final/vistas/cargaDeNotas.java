@@ -8,26 +8,37 @@ package proyectogrupo91final.vistas;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import proyectogrupo91final.AccesoDatos.*;
-
 
 import proyectogrupo91final.entidades.*;
 
-
 public class cargaDeNotas extends javax.swing.JInternalFrame {
 
-    private AlumnoData ad ;
-    public cargaDeNotas(AlumnoData ad) {
+    private DefaultTableModel modelo = new DefaultTableModel();
+
+    private AlumnoData ad;
+    private MateriaData as;
+    private InscripcionData ida;
+    private Materia mat;
+    private Inscripcion i;
+
+    public cargaDeNotas(AlumnoData ad, InscripcionData ida, MateriaData as) {
+
         initComponents();
-      
+
         this.ad = ad;
+        this.ida = ida;
+        this.as=as;
+        Alumno alu = (Alumno) jcbAlumno.getSelectedItem();
+        List<Alumno> listaAlumnos = ad.listarAlumnos();
+        List<Materia> listarMat = ida.obtenerMateriasCursadas(alu.getIdAlumno());
         cargarCombo();
-        
+        armarTabla();
+        rellenarTabla();
     }
 
-  
 
-  
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -69,18 +80,20 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel2))))
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))))
+                        .addGap(0, 197, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +103,9 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGap(43, 43, 43)
                 .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,8 +113,9 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
         // TODO add your handling code here:
-       // Alumno listarM = (Alumno )jcbAlumno.getSelectedItem();
-       
+        Alumno listarM = (Alumno) jcbAlumno.getSelectedItem();
+
+        ///List<Materia> listarMat = (Materia)jTListado.getSelectedColumn();
     }//GEN-LAST:event_jcbAlumnoActionPerformed
 
 
@@ -113,24 +127,39 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<Alumno> jcbAlumno;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarCombo(){///COMPLETO  
-        
+    private void cargarCombo() {///COMPLETO  
+
         //AlumnoData alumnoData = new AlumnoData(); 
         List<Alumno> listaAlumnos = ad.listarAlumnos();
         //jcbAlumno.removeAllItems();
         System.out.println(listaAlumnos.get(0).getNombre());
-        for (Alumno alumno :listaAlumnos) {
-             jcbAlumno.addItem(alumno);
-             
+        for (Alumno alumno : listaAlumnos) {
+            jcbAlumno.addItem(alumno);
+
         }
+
+    }
+
+    private void armarTabla() {
+
+        modelo.addColumn("codigo");
+        modelo.addColumn("nombre");
+        modelo.addColumn("nota");
+        jTListado.setModel(modelo);
+
+        /// List<Materia> tablaCombo = ida.obtenerMateriasCursadas();
+    }
+
+    private void rellenarTabla() {
         
-//        ad.listarAlumnos().forEach((listarM) -> {
-//            jcbAlumno.addItem(listarM.getNombre());
-//             System.out.println(listarM.getNombre());
-//        });
-       
-//            for (Alumno alumno :ad.listarAlumnos()) {
-//             jcbAlumno.addItem(alumno.getNombre());
-//    }
-         
-}}
+        for(Materia materia: as.listarMateria()){
+        ///modelo.addRow(new Object[]{
+//        materia.getIdMateria(),
+//        materia.getNombre(),
+//        i.getNota()});
+            modelo.addRow(new Object[]{materia.getIdMateria(), materia.getNombre()
+                    ,i.getNota()});
+        }
+    }
+
+}
