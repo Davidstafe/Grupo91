@@ -108,7 +108,7 @@ public class AlumnoData {
     }
 
 
-    public List<Alumno> listarAlumnos() { //ver video
+    public List<Alumno> listarAlumnos() { //listamos el alumno y llamaos al nuevo alumno
         List<Alumno> alumnos = new ArrayList<>();
 
         String sql = "SELECT * FROM alumno WHERE estado=true";
