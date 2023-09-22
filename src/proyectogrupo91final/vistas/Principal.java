@@ -5,17 +5,19 @@
  */
 package proyectogrupo91final.vistas;
 
-import proyectogrupo91final.AccesoDatos.AlumnoData;
-import proyectogrupo91final.AccesoDatos.MateriaData;
+import proyectogrupo91final.AccesoDatos.*;
+
 
 /**
  *
  * @author david
  */
 public class Principal extends javax.swing.JFrame {
-
+    private InscripcionData ida= new InscripcionData();
     private AlumnoData ad= new AlumnoData();
-    private MateriaData as;
+    private MateriaData as= new MateriaData();
+    
+    
 
     
     public Principal() {
@@ -153,7 +155,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        cargaDeNotas vistaCargaNota = new cargaDeNotas(ad);
+        cargaDeNotas vistaCargaNota = new cargaDeNotas(ad,ida,as);
         vistaCargaNota.setVisible(true);
         Escritorio.add(vistaCargaNota);
         Escritorio.moveToFront(vistaCargaNota);
