@@ -113,7 +113,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<Alumno> jcbAlumno;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarCombo(){
+    private void cargarCombo(){///COMPLETO  
         
         //AlumnoData alumnoData = new AlumnoData(); 
         List<Alumno> listaAlumnos = ad.listarAlumnos();
