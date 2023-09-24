@@ -32,10 +32,12 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     private MateriaData as;
 
     //constructor
-    public ConsultaAlumnoPorMateria(MateriaData as, Alumno al) {
+    public ConsultaAlumnoPorMateria(MateriaData as, Alumno al/*, Materia mat*/){
 
         this.as = as;
         this.al = al;
+       // this.mat=mat;
+       
         initComponents();
         cargarCombo();
         armarTabla();
@@ -136,7 +138,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
         for (Materia materia : listaMateria) {
             jCBMaterias.addItem(materia.toString());
-
+//jCBMaterias.addItem (mat);
         }
 
     }
@@ -163,7 +165,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
             Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
             if (alumno != null) {
-                modelo.addRow(new Object[]{alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+                modelo.addRow(new Object[]{alumno.getIdAlumno(),alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
             }
         }
 

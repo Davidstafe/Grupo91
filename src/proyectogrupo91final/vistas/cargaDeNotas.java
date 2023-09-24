@@ -167,7 +167,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 //    }
 //    
     private void actualizarTabla(){
-        ///setear la tabla para que quede limpi
+        ///limpiar la tabla 
         modelo.setRowCount(0);
         
         ///obtener las materias cursadas por el alumno seleccionado

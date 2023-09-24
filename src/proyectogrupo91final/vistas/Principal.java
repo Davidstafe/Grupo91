@@ -18,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     private AlumnoData ad= new AlumnoData();
     private MateriaData as= new MateriaData();
     private Alumno al = new Alumno();
+
     
 
     
@@ -167,7 +168,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al);
+        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al/*,mat*/);
         vistaConsultaAlumnoPorMateria.setVisible(true);
         Escritorio.add(vistaConsultaAlumnoPorMateria);
         Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
