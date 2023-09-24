@@ -76,7 +76,8 @@ public class ProyectoGrupo91Final {
 
 //d.actualizarNota(8.2, 3, 5);
 
-
+       for (Materia materia : listaMateria) {
+                System.out.println(materia)
 
 
     }

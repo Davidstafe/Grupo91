@@ -5,6 +5,7 @@
  */
 package proyectogrupo91final.vistas;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import proyectogrupo91final.AccesoDatos.AlumnoData;
@@ -26,9 +27,10 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     private AlumnoData ad;
     private InscripcionData ida;
     private Materia mat;
+    private MateriaData matdat;
     private Inscripcion i;
     private Materia materiaSeleccionada; ///guardara la materia seleccionada,en el jcombobox
-
+List<Materia> listaMateria;
     private MateriaData as;
 
     //constructor
@@ -39,7 +41,8 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
        // this.mat=mat;
        
         initComponents();
-        cargarCombo();
+      cargarCombo();
+     
         armarTabla();
     }
 
@@ -124,25 +127,43 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jCBMaterias;
+    private javax.swing.JComboBox<Materia> jCBMaterias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableConsulta;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarCombo() {
-
+//    private void cargarCombo() {
+//
 //recorre la lista de materias y  las agrega al  combo box
-        List<Materia> listaMateria = as.listarMateria();
-
-        for (Materia materia : listaMateria) {
-            jCBMaterias.addItem(materia.toString());
+//listaMateria = (List <Materia>)as.listarMateria();
+//
+//        for (Materia materia : listaMateria) {
+//            jCBMaterias.addItem(mat);
+//            / no puedo poner  en  propiedades /code / Materia  .
+//            Serà ese el motivo por lo que no trae el listado?
 //jCBMaterias.addItem (mat);
-        }
+//        }
+//
+//    }
 
+    private void cargarCombo(){
+     
+        
+        List<Materia> listaMateria = matdat.listarMateria();
+        
+        for (Materia materia : listaMateria) {
+        
+          jCBMaterias.addItem(materia);
+           
+    } 
+        
+        
     }
-
+    
+    
+    
     private void armarTabla() {
 
         modelo.addColumn("ID");
@@ -150,9 +171,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
         modelo.addColumn("Apellido");
         modelo.addColumn("Nombre");
         jTableConsulta.setModel(modelo);
-
     }
-
     private void actualizarTabla() {
         ///setear la tabla para que quede limpi
         modelo.setRowCount(0);
