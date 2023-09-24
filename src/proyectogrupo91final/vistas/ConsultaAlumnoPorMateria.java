@@ -6,27 +6,41 @@
 package proyectogrupo91final.vistas;
 
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import proyectogrupo91final.AccesoDatos.AlumnoData;
+import proyectogrupo91final.AccesoDatos.InscripcionData;
 import proyectogrupo91final.AccesoDatos.MateriaData;
+import proyectogrupo91final.entidades.Alumno;
+import proyectogrupo91final.entidades.Inscripcion;
 import proyectogrupo91final.entidades.Materia;
 
 /**
  *
  * @author HP
  */
-public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
+public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
-    private MateriaData ad;
-    public ConsultaAlumnoPorMateria(MateriaData ad) {
+    private DefaultTableModel modelo = new DefaultTableModel();
+
+    private Alumno al;
+    private AlumnoData ad;
+    private InscripcionData ida;
+    private Materia mat;
+    private Inscripcion i;
+    private Materia materiaSeleccionada; ///guardara la materia seleccionada,en el jcombobox
+
+    private MateriaData as;
+
+    //constructor
+    public ConsultaAlumnoPorMateria(MateriaData as, Alumno al) {
+
+        this.as = as;
+        this.al = al;
         initComponents();
-        this.ad = ad;
         cargarCombo();
+        armarTabla();
     }
 
-    ConsultaAlumnoPorMateria() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,9 +112,12 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
-        // TODO add your handling code here:
-        
-//        Materia listM =(Materia) jCBMaterias.getSelectedItem();
+
+        materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
+        if (materiaSeleccionada != null) {
+            actualizarTabla();
+        }
+
     }//GEN-LAST:event_jCBMateriasActionPerformed
 
 
@@ -112,25 +129,44 @@ public class ConsultaAlumnoPorMateria extends  javax.swing.JInternalFrame {
     private javax.swing.JTable jTableConsulta;
     // End of variables declaration//GEN-END:variables
 
-  private void cargarCombo(){
-//        jCBMaterias.removeAll();
-//        jCBMaterias.addItem("Seleccione materia");
-//        
-//        for (Materia listarMat : ad.listarMateria()){
-//            jCBMaterias.addItem(listarMat.getNombre());
-//            
-//        }
-            List<Materia> listaMateria = ad.listarMateria();
-        //jcbAlumno.removeAllItems();
-        System.out.println(listaMateria.get(0).getNombre());
-        for (Materia materia :listaMateria) {
-             jCBMaterias.addItem(materia.toString());
-             
+    private void cargarCombo() {
+
+//recorre la lista de materias y  las agrega al  combo box
+        List<Materia> listaMateria = as.listarMateria();
+
+        for (Materia materia : listaMateria) {
+            jCBMaterias.addItem(materia.toString());
+
         }
-     
-        
-        
+
     }
+
+    private void armarTabla() {
+
+        modelo.addColumn("ID");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Nombre");
+        jTableConsulta.setModel(modelo);
+
+    }
+
+    private void actualizarTabla() {
+        ///setear la tabla para que quede limpi
+        modelo.setRowCount(0);
+
+        ///obtener los alumnos que cursan en la materia  seleccionada
+        List<Alumno> listarIns = ida.obtenerAlumnosXMaterias(materiaSeleccionada.getIdMateria());
+
+        //llenar la tabla con los alumnos 
+        for (Alumno al : listarIns) {
+
+            Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
+            if (alumno != null) {
+                modelo.addRow(new Object[]{alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+            }
+        }
+
+    }
+
 }
-
-
