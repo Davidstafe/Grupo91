@@ -23,20 +23,22 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
     private InscripcionData ida;
     private Materia mat;
     private Inscripcion i;
+    private Alumno alumnoSeleccionado; ///guardara el alumno select,en el jcombobox
 
-    public cargaDeNotas(AlumnoData ad, InscripcionData ida, MateriaData as) {
+    public cargaDeNotas(AlumnoData ad, InscripcionData ida,MateriaData as) {
 
         initComponents();
 
         this.ad = ad;
         this.ida = ida;
         this.as=as;
-        Alumno alu = (Alumno) jcbAlumno.getSelectedItem();
-        List<Alumno> listaAlumnos = ad.listarAlumnos();
-        List<Materia> listarMat = ida.obtenerMateriasCursadas(alu.getIdAlumno());
+//        ///Alumno alu = (Alumno) jcbAlumno.getSelectedItem();
+        //List<Alumno> listaAlumnos = ad.listarAlumnos();
+       // List<Materia> listarMat = ida.obtenerMateriasCursadas(alu.getIdAlumno());
+        
         cargarCombo();
         armarTabla();
-        rellenarTabla();
+        //actualizarTabla();
     }
 
 
@@ -114,8 +116,11 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
         // TODO add your handling code here:
-        Alumno listarM = (Alumno) jcbAlumno.getSelectedItem();
-
+        //Alumno listarM = (Alumno) jcbAlumno.getSelectedItem();
+        alumnoSeleccionado=(Alumno)jcbAlumno.getSelectedItem();
+        if(alumnoSeleccionado!= null){
+            actualizarTabla();
+        }
         ///List<Materia> listarMat = (Materia)jTListado.getSelectedColumn();
     }//GEN-LAST:event_jcbAlumnoActionPerformed
 
@@ -130,10 +135,9 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private void cargarCombo() {///COMPLETO  
 
-        //AlumnoData alumnoData = new AlumnoData(); 
+       ///recorre la lista de alumno y los agrega en el jcomboBox
         List<Alumno> listaAlumnos = ad.listarAlumnos();
-        //jcbAlumno.removeAllItems();
-        System.out.println(listaAlumnos.get(0).getNombre());
+             
         for (Alumno alumno : listaAlumnos) {
             jcbAlumno.addItem(alumno);
 
@@ -148,19 +152,39 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         modelo.addColumn("nota");
         jTListado.setModel(modelo);
 
-        /// List<Materia> tablaCombo = ida.obtenerMateriasCursadas();
+        
     }
 
-    private void rellenarTabla() {
+//    private void rellenarTabla() {
+//        
+//        for(Materia materia: as.listarMateria()){
+//        ///modelo.addRow(new Object[]{
+////        materia.getIdMateria(),
+////        materia.getNombre(),
+////        i.getNota()});
+//            modelo.addRow(new Object[]{materia.getIdMateria(), materia.getNombre()
+//                    ,i.getNota()});
+//        }
+//    }
+//    
+    private void actualizarTabla(){
+        ///limpiar la tabla 
+        modelo.setRowCount(0);
         
-        for(Materia materia: as.listarMateria()){
-        ///modelo.addRow(new Object[]{
-//        materia.getIdMateria(),
-//        materia.getNombre(),
-//        i.getNota()});
-            modelo.addRow(new Object[]{materia.getIdMateria(), materia.getNombre()
-                    ,i.getNota()});
+        ///obtener las materias cursadas por el alumno seleccionado
+        
+        List<Inscripcion> listarIns= ida.obtenerInscripcionPorAlumno(alumnoSeleccionado.getIdAlumno());
+        
+        //llenar la tabla con las materias y notas correspondientes
+        
+        for(Inscripcion inscripcion : listarIns){
+            
+            Materia materia = as.buscarMateria(inscripcion.getIdInscripcion());
+            if(materia != null){
+                modelo.addRow(new Object[]{materia.getIdMateria(),materia.getNombre(),inscripcion.getNota()});
+                        }
+            }
+                
         }
     }
 
-}

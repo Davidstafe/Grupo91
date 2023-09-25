@@ -7,6 +7,7 @@ package proyectogrupo91final.vistas;
 
 import java.sql.Connection;
 import proyectogrupo91final.AccesoDatos.*;
+import proyectogrupo91final.entidades.Alumno;
 
 
 /**
@@ -14,6 +15,15 @@ import proyectogrupo91final.AccesoDatos.*;
  * @author david
  */
 public class Principal extends javax.swing.JFrame {
+<<<<<<< HEAD
+=======
+    private InscripcionData ida= new InscripcionData();
+    private AlumnoData ad= new AlumnoData();
+    private MateriaData as= new MateriaData();
+    private Alumno al = new Alumno();
+
+    
+>>>>>>> e1d3999d82dabf2757c6721e012c3bc2757ed564
 
     private InscripcionData ida = new InscripcionData();
     private AlumnoData ad = new AlumnoData();
@@ -179,7 +189,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as);
+        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al/*,mat*/);
         vistaConsultaAlumnoPorMateria.setVisible(true);
         Escritorio.add(vistaConsultaAlumnoPorMateria);
         Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
