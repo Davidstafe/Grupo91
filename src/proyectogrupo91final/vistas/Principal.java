@@ -5,6 +5,7 @@
  */
 package proyectogrupo91final.vistas;
 
+import java.sql.Connection;
 import proyectogrupo91final.AccesoDatos.*;
 
 
@@ -13,15 +14,15 @@ import proyectogrupo91final.AccesoDatos.*;
  * @author david
  */
 public class Principal extends javax.swing.JFrame {
-    private InscripcionData ida= new InscripcionData();
-    private AlumnoData ad= new AlumnoData();
-    private MateriaData as= new MateriaData();
-    
-    
 
-    
+    private InscripcionData ida = new InscripcionData();
+    private AlumnoData ad = new AlumnoData();
+    private MateriaData as = new MateriaData();
+    private Connection con = null;
+
     public Principal() {
         initComponents();
+        con = Conexion.getConexion();
     }
 
     
@@ -88,6 +89,11 @@ public class Principal extends javax.swing.JFrame {
         jMMateria.setText("Materia");
 
         jMenuItemFormularioDeMateria.setText("Formulario de materia");
+        jMenuItemFormularioDeMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFormularioDeMateriaActionPerformed(evt);
+            }
+        });
         jMMateria.add(jMenuItemFormularioDeMateria);
 
         jMenuBar1.add(jMMateria);
@@ -145,6 +151,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItemFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFormularioActionPerformed
         // TODO add your handling code here:
+          Escritorio.removeAll();
+        Escritorio.repaint();
+        GestionDeAlumnos vistaGestionDeAlumnos = new GestionDeAlumnos();
+        vistaGestionDeAlumnos.setVisible(true);
+        Escritorio.add(vistaGestionDeAlumnos);
+        Escritorio.moveToFront(vistaGestionDeAlumnos);
+        
     }//GEN-LAST:event_jMenuItemFormularioActionPerformed
 
     private void jMenuItemManejoDeInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemManejoDeInscripcionesActionPerformed
@@ -171,6 +184,17 @@ public class Principal extends javax.swing.JFrame {
         Escritorio.add(vistaConsultaAlumnoPorMateria);
         Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
     }//GEN-LAST:event_jMXMActionPerformed
+
+    private void jMenuItemFormularioDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFormularioDeMateriaActionPerformed
+        // TODO add your handling code here:
+             Escritorio.removeAll();
+        Escritorio.repaint();
+       GestionDeMaterias vistaGestionDeMaterias = new GestionDeMaterias();
+        vistaGestionDeMaterias.setVisible(true);
+        Escritorio.add(vistaGestionDeMaterias);
+        Escritorio.moveToFront(vistaGestionDeMaterias);
+        
+    }//GEN-LAST:event_jMenuItemFormularioDeMateriaActionPerformed
 
     /**
      * @param args the command line arguments
