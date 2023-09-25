@@ -15,19 +15,13 @@ import proyectogrupo91final.entidades.Alumno;
  * @author david
  */
 public class Principal extends javax.swing.JFrame {
-<<<<<<< HEAD
-=======
+
+
     private InscripcionData ida= new InscripcionData();
     private AlumnoData ad= new AlumnoData();
     private MateriaData as= new MateriaData();
     private Alumno al = new Alumno();
 
-    
->>>>>>> e1d3999d82dabf2757c6721e012c3bc2757ed564
-
-    private InscripcionData ida = new InscripcionData();
-    private AlumnoData ad = new AlumnoData();
-    private MateriaData as = new MateriaData();
     private Connection con = null;
 
     public Principal() {
