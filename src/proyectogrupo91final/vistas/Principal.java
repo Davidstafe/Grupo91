@@ -192,6 +192,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemManipulacionActionPerformed
 
     private void jMXMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMXMActionPerformed
+
         // TODO add your handling code here:
 //        Escritorio.removeAll();
 //        Escritorio.repaint();
@@ -199,6 +200,16 @@ public class Principal extends javax.swing.JFrame {
 //        vistaConsultaAlumnoPorMateria.setVisible(true);
 //        Escritorio.add(vistaConsultaAlumnoPorMateria);
 //        Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
+
+Escritorio.removeAll();
+        Escritorio.repaint();
+       ConsultaAxM vista = new ConsultaAxM(as,ad);
+        System.out.println(vista);
+       vista.setVisible(true);
+        Escritorio.add(vista);
+        Escritorio.moveToFront(vista);
+        
+
     }//GEN-LAST:event_jMXMActionPerformed
 
     private void jMenuItemFormularioDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFormularioDeMateriaActionPerformed
@@ -213,7 +224,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemFormularioDeMateriaActionPerformed
 
     private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
+
         dispose();
+
+       
+        System.exit(0);//// què merda pasa que no cierra ?
+        
+
     }//GEN-LAST:event_jMSalirActionPerformed
 
     /**
