@@ -58,6 +58,7 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione Materia ");
 
+        jCBMaterias.setEditable(true);
         jCBMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBMateriasActionPerformed(evt);
