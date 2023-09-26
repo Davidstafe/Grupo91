@@ -46,7 +46,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Documento: ");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Alumno");
 
         jLabel4.setText("Apellido:");
@@ -105,9 +105,9 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(95, 95, 95)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel3)
-                .addGap(277, 277, 277))
+                .addGap(332, 332, 332))
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -185,7 +185,7 @@ public class GestionDeAlumnos extends javax.swing.JInternalFrame {
                     .addComponent(jEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         pack();
