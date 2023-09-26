@@ -37,7 +37,7 @@ public class cargaDeNotas extends javax.swing.JInternalFrame {
         
         cargarCombo();
         armarTabla();
-        //actualizarTabla();
+       
     }
 
 

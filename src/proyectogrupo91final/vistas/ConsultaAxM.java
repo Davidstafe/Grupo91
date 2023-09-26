@@ -15,11 +15,7 @@ import proyectogrupo91final.entidades.Alumno;
 import proyectogrupo91final.entidades.Inscripcion;
 import proyectogrupo91final.entidades.Materia;
 
-/**
- *
- * @author HP
- */
-public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
+public class ConsultaAxM extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();
 
@@ -27,27 +23,26 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     private AlumnoData ad;
     private InscripcionData ida;
     private Materia mat;
-    //   private MateriaData matdat;
+
     private Inscripcion i;
     private Materia materiaSeleccionada; ///guardara la materia seleccionada,en el jcombobox
-//List<Materia> listaMateria;
+
     private MateriaData as;
     List<Alumno> lisAlum;
 
-    //constructor
-    
-    public ConsultaAlumnoPorMateria(MateriaData as, AlumnoData ad/*, InscripcionData ida*/) {
+    public ConsultaAxM(MateriaData as, AlumnoData ad) {
 
         this.as = as;
         this.al = al;
-
         this.ad = ad;
-        //this.ida= ida;
+
         initComponents();
         cargarCombo();
         armarTabla();
+
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,11 +53,10 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableConsulta = new javax.swing.JTable();
 
-        setVisible(true);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel1.setText("Consulta de Alumno por Materia ");
 
-        jLabel1.setText("Consulta de Alumnos por Materia");
-
-        jLabel2.setText("Seleccione una Materia");
+        jLabel2.setText("Seleccione Materia ");
 
         jCBMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,43 +84,39 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)
-                                .addGap(59, 59, 59)
-                                .addComponent(jCBMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(36, 36, 36)
+                        .addComponent(jCBMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jCBMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
-
         materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
         if (materiaSeleccionada != null) {
             actualizarTabla();
         }
-
     }//GEN-LAST:event_jCBMateriasActionPerformed
 
 
@@ -138,32 +128,17 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTableConsulta;
     // End of variables declaration//GEN-END:variables
 
-//    private void cargarCombo() {
-//
-//recorre la lista de materias y  las agrega al  combo box
-//listaMateria = (List <Materia>)as.listarMateria();
-//
-//        for (Materia materia : listaMateria) {
-//            jCBMaterias.addItem(mat);
-//            / no puedo poner  en  propiedades /code / Materia  .
-//            Serà ese el motivo por lo que no trae el listado?
-//jCBMaterias.addItem (mat);
-//        }
-//
-//    }
-    private void cargarCombo() {
+ private void cargarCombo() {
 
         List<Materia> listMat = as.listarMateria();
 
         for (Materia materia : listMat) {
 
             jCBMaterias.addItem(materia);
-
         }
-
     }
-
-    private void armarTabla() {
+ 
+  private void armarTabla() {
 
         modelo.addColumn("ID");
         modelo.addColumn("DNI");
@@ -171,9 +146,9 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         jTableConsulta.setModel(modelo);
     }
-
-    private void actualizarTabla() {
-        //setear la tabla para que quede limpi
+ 
+  private void actualizarTabla() {
+        //setear la tabla para que quede limpia
         modelo.setRowCount(0);
         materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
         //obtener los alumnos que cursan en la materia  seleccionada
@@ -189,5 +164,4 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
         }
 
     }
-
 }

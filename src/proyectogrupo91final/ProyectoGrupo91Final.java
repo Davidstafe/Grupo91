@@ -8,7 +8,7 @@ public class ProyectoGrupo91Final {
 
     public static void main(String[] args) {
 
-        System.out.println("hola");
+      //  System.out.println("hola");
 //        Connection con = Conexion.getConexion();
 //        MateriaData a = new MateriaData();
 //        AlumnoData s = new AlumnoData();
@@ -76,12 +76,12 @@ public class ProyectoGrupo91Final {
 
 //d.actualizarNota(8.2, 3, 5);
 
-       for (Materia materia : listaMateria) {
-                System.out.println(materia)
-
-
-    }
-}
+//       for (Materia materia : listaMateria) {
+//                System.out.println(materia)
+//
+//
+//    }
+//}
 
 //      // Materia a= new Materia(1,"inf", 1, true);
 //
@@ -117,3 +117,5 @@ public class ProyectoGrupo91Final {
 
 
 
+    }
+}
