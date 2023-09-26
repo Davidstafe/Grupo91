@@ -30,19 +30,20 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     private MateriaData matdat;
     private Inscripcion i;
     private Materia materiaSeleccionada; ///guardara la materia seleccionada,en el jcombobox
-List<Materia> listaMateria;
+    List<Materia> listaMateria;
     private MateriaData as;
 
-    //constructor
-    public ConsultaAlumnoPorMateria(MateriaData as, Alumno al/*, Materia mat*/){
+    
+
+    public ConsultaAlumnoPorMateria(MateriaData as, Alumno al/*, Materia mat*/) {
 
         this.as = as;
         this.al = al;
-       // this.mat=mat;
-       
+        this.mat = mat;
+
         initComponents();
-      cargarCombo();
-     
+        cargarCombo();
+
         armarTabla();
     }
 
@@ -134,46 +135,34 @@ List<Materia> listaMateria;
     private javax.swing.JTable jTableConsulta;
     // End of variables declaration//GEN-END:variables
 
-//    private void cargarCombo() {
-//
-//recorre la lista de materias y  las agrega al  combo box
-//listaMateria = (List <Materia>)as.listarMateria();
-//
-//        for (Materia materia : listaMateria) {
-//            jCBMaterias.addItem(mat);
-//            / no puedo poner  en  propiedades /code / Materia  .
-//            Serà ese el motivo por lo que no trae el listado?
-//jCBMaterias.addItem (mat);
-//        }
-//
-//    }
-
-    private void cargarCombo(){
-     
-        
-        List<Materia> listaMateria = matdat.listarMateria();
-        
-        for (Materia materia : listaMateria) {
-        
-          jCBMaterias.addItem(materia);
-           
-    } 
-        
-        
+    private void cargarCombo() {
+        modelo.addColumn("DNI");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Nombre");
+        jTableConsulta.setModel(modelo);
     }
+
+    private void actualizarTabla() {
+        ///setear la tabla para que quede limpi
+//        model recorre la lista de materias y las agrega al  combo box
+        listaMateria = (List<Materia>) as.listarMateria();
+
+        for (Materia materia : listaMateria) {
+            jCBMaterias.addItem(mat);
+//             / no puedo poner  en propiedades /code / Materia.Serà ese el motivo por lo que no trae el listado
+                  jCBMaterias.addItem(mat);
+        }
+    }
+
+  
+        
+    
     
     
     
     private void armarTabla() {
 
         modelo.addColumn("ID");
-        modelo.addColumn("DNI");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Nombre");
-        jTableConsulta.setModel(modelo);
-    }
-    private void actualizarTabla() {
-        ///setear la tabla para que quede limpi
         modelo.setRowCount(0);
 
         ///obtener los alumnos que cursan en la materia  seleccionada

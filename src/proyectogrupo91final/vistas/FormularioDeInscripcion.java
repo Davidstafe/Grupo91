@@ -1,7 +1,12 @@
 
 package proyectogrupo91final.vistas;
 
-import javax.swing.ButtonGroup;
+
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+import proyectogrupo91final.AccesoDatos.*;
+import proyectogrupo91final.entidades.*;
 
 /**
  *
@@ -9,11 +14,26 @@ import javax.swing.ButtonGroup;
  */
 public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormularioDeInscripcion
-     */
+    private ArrayList<Materia> lisM;
+    private ArrayList<Alumno> lisA;
+
+    private InscripcionData insc;
+    private AlumnoData alu;
+    private MateriaData mat;
+
+    private DefaultTableModel modelo;
+
     public FormularioDeInscripcion() {
         initComponents();
+
+        mat = new MateriaData();
+        insc = new InscripcionData();
+        alu = new AlumnoData();
+
+        lisA = (ArrayList<Alumno>) alu.listarAlumnos();
+        modelo = new DefaultTableModel();
+        cargarAlumnos();
+        armarTitulos();
     }
 
     /**
@@ -45,7 +65,6 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un alumno");
 
-        JCBAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         JCBAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JCBAlumnoMouseClicked(evt);
@@ -85,6 +104,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTFormularioDeInscripciòn);
 
         jBInscribir.setText("Inscribir");
+        jBInscribir.setEnabled(false);
         jBInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBInscribirActionPerformed(evt);
@@ -92,6 +112,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         });
 
         jBAnular.setText("Anular Inscripciòn");
+        jBAnular.setEnabled(false);
         jBAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAnularActionPerformed(evt);
@@ -177,7 +198,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBInscribirActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void JCBAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCBAlumnoMouseClicked
@@ -200,12 +221,27 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
        jRMateriasInscriptas.setEnabled(false);
         
     }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
- 
+ private void cargarAlumnos(){
+     for (Alumno alumnos : lisA) {
+         JCBAlumno.addItem(alumnos);
+     }
+     
+
     
+}
+ private void armarTitulos(){
+     
+     
+     modelo.addColumn("idMateria");
+     modelo.addColumn("Nombre");
+     modelo.addColumn("Año");
+     modelo.addColumn("idAlumno");
+     jTFormularioDeInscripciòn.setModel(modelo);
+ }   
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> JCBAlumno;
+    private javax.swing.JComboBox<Alumno> JCBAlumno;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBAnular;
     private javax.swing.JButton jBInscribir;

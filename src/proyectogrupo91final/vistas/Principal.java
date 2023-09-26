@@ -135,6 +135,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMConsultas);
 
         jMSalir.setText("Salir");
+        jMSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMSalir);
 
         setJMenuBar(jMenuBar1);
@@ -166,6 +171,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItemManejoDeInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemManejoDeInscripcionesActionPerformed
         // TODO add your handling code here:
+           Escritorio.removeAll();
+        Escritorio.repaint();
+       FormularioDeInscripcion vistaManejoDeInscripciones  = new  FormularioDeInscripcion();
+        vistaManejoDeInscripciones.setVisible(true);
+        Escritorio.add( vistaManejoDeInscripciones);
+        Escritorio.moveToFront( vistaManejoDeInscripciones);
+        
     }//GEN-LAST:event_jMenuItemManejoDeInscripcionesActionPerformed
 
     private void jMenuItemManipulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemManipulacionActionPerformed
@@ -181,12 +193,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMXMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMXMActionPerformed
         // TODO add your handling code here:
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al/*,mat*/);
-        vistaConsultaAlumnoPorMateria.setVisible(true);
-        Escritorio.add(vistaConsultaAlumnoPorMateria);
-        Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
+//        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al/*,mat*/);
+//        vistaConsultaAlumnoPorMateria.setVisible(true);
+//        Escritorio.add(vistaConsultaAlumnoPorMateria);
+//        Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
     }//GEN-LAST:event_jMXMActionPerformed
 
     private void jMenuItemFormularioDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFormularioDeMateriaActionPerformed
@@ -199,6 +211,10 @@ public class Principal extends javax.swing.JFrame {
         Escritorio.moveToFront(vistaGestionDeMaterias);
         
     }//GEN-LAST:event_jMenuItemFormularioDeMateriaActionPerformed
+
+    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jMSalirActionPerformed
 
     /**
      * @param args the command line arguments
