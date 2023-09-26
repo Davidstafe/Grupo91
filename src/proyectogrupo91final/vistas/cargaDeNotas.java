@@ -16,6 +16,7 @@ import proyectogrupo91final.entidades.*;
 public class cargaDeNotas extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();
+    
 
     private AlumnoData ad;
     private MateriaData as;

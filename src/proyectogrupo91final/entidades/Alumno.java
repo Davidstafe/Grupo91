@@ -92,6 +92,12 @@ public class Alumno {
     public String toString() {
         return    dni + ", " + apellido + ", " + nombre ;
     }
+
+    public void isEstado(boolean selected) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
     
     
