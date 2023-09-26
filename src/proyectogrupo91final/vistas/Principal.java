@@ -188,6 +188,7 @@ Escritorio.removeAll();
        vista.setVisible(true);
         Escritorio.add(vista);
         Escritorio.moveToFront(vista);
+        
     }//GEN-LAST:event_jMXMActionPerformed
 
     private void jMenuItemFormularioDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFormularioDeMateriaActionPerformed

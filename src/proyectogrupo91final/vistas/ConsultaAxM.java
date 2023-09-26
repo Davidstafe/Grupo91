@@ -131,6 +131,7 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
         materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
         if (materiaSeleccionada != null) {
             actualizarTabla();
+           
         }
     }//GEN-LAST:event_jCBMateriasActionPerformed
 
