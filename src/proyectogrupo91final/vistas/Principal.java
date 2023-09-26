@@ -193,22 +193,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMXMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMXMActionPerformed
 
-        // TODO add your handling code here:
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-//        ConsultaAlumnoPorMateria vistaConsultaAlumnoPorMateria = new ConsultaAlumnoPorMateria(as,al/*,mat*/);
-//        vistaConsultaAlumnoPorMateria.setVisible(true);
-//        Escritorio.add(vistaConsultaAlumnoPorMateria);
-//        Escritorio.moveToFront(vistaConsultaAlumnoPorMateria);
-
-Escritorio.removeAll();
+        Escritorio.removeAll();
         Escritorio.repaint();
-       ConsultaAxM vista = new ConsultaAxM(as,ad);
+        ConsultaAxM vista = new ConsultaAxM(as, ad);
         System.out.println(vista);
-       vista.setVisible(true);
+        vista.setVisible(true);
         Escritorio.add(vista);
         Escritorio.moveToFront(vista);
-        
+
 
     }//GEN-LAST:event_jMXMActionPerformed
 

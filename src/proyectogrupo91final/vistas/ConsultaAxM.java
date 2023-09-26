@@ -188,4 +188,4 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
 
 }
 //Equipo91
-//acà estamos
+//acà estamos otra vez
