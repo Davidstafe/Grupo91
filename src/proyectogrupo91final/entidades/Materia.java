@@ -60,7 +60,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria= " + idMateria + ", nombre= " + nombre + '}';
+        return idMateria + ", " +nombre ;
     }
     
     //grupo91
