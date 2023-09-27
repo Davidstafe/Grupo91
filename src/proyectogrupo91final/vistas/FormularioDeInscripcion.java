@@ -222,6 +222,8 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
 
         jBInscribir.setEnabled(false);
         jBAnular.setEnabled(true);
+        
+        
     }//GEN-LAST:event_jRMateriasInscriptasActionPerformed
 
     private void jRMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasActionPerformed
