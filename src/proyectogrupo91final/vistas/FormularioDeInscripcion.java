@@ -194,7 +194,13 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
-    
+    int select=jTFormularioDeInscripciòn.getSelectedRow();
+        if (select!=-1) {
+            Alumno a=(Alumno)JCBAlumno.getSelectedItem();
+            int idMateria=(Integer)modelo.getValueAt(select, 0);
+            String nombre=(String)modelo.getValueAt(select, 1);
+            
+        }
     }//GEN-LAST:event_jBInscribirActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -202,7 +208,7 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void JCBAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JCBAlumnoMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_JCBAlumnoMouseClicked
 
     private void jBAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularActionPerformed
@@ -210,35 +216,62 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBAnularActionPerformed
 
     private void jRMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasInscriptasActionPerformed
-//   ButtonGroup botones= new ButtonGroup();
-//        botones.add(jRMateriasInscriptas);
-//    botones.add (jRMateriasNoInscriptas);
-            
-    jRMateriasNoInscriptas.setEnabled(false);
+        borrarFilas();
+        jRMateriasNoInscriptas.setSelected(false);
+        datosInscriptos();
+
+        jBInscribir.setEnabled(false);
+        jBAnular.setEnabled(true);
     }//GEN-LAST:event_jRMateriasInscriptasActionPerformed
 
     private void jRMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMateriasNoInscriptasActionPerformed
-       jRMateriasInscriptas.setEnabled(false);
-        
-    }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
- private void cargarAlumnos(){
-     for (Alumno alumnos : lisA) {
-         JCBAlumno.addItem(alumnos);
-     }
-     
+        borrarFilas();
+        jRMateriasInscriptas.setSelected(false);
+        datosNoInscriptos();
+       jBAnular.setEnabled(false);
+        jBInscribir.setEnabled(true);
+       
 
+    }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
+    private void cargarAlumnos() {
+        for (Alumno alumnos : lisA) {
+            JCBAlumno.addItem(alumnos);
+        }
+
+    }
+
+    private void armarTitulos() {
+
+        modelo.addColumn("idMateria");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Año");
+        modelo.addColumn("idAlumno");
+        jTFormularioDeInscripciòn.setModel(modelo);
+    }
+
+    private void borrarFilas() {
+        int ind = modelo.getRowCount() - 1;
+        for (int i = ind; i > 0; i--) {
+            modelo.removeRow(i);
+        }
     
 }
- private void armarTitulos(){
-     
-     
-     modelo.addColumn("idMateria");
-     modelo.addColumn("Nombre");
-     modelo.addColumn("Año");
-     modelo.addColumn("idAlumno");
-     jTFormularioDeInscripciòn.setModel(modelo);
- }   
  
+ private void datosInscriptos(){
+     Alumno a=(Alumno) JCBAlumno.getSelectedItem();
+     lisM=(ArrayList) insc.obtenerMateriasCursadas(a.getIdAlumno());
+     for (Materia materia : lisM) {
+         modelo.addRow(new Object[]{materia.getIdMateria(),materia.getNombre(),materia.getAnioMateria()});
+     }
+ }
+      private void datosNoInscriptos(){
+     Alumno a=(Alumno) JCBAlumno.getSelectedItem();
+     lisM=(ArrayList) insc.obtenerMateriasNoCursada(a.getIdAlumno());
+     for (Materia materia : lisM) {
+         modelo.addRow(new Object[]{materia.getIdMateria(),materia.getNombre(),materia.getAnioMateria()});
+     }
+     
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> JCBAlumno;

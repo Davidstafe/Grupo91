@@ -130,7 +130,7 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
         materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
         if (materiaSeleccionada != null) {
-      actualizarTabla();
+//      actualizarTabla();
            
         }
     }//GEN-LAST:event_jCBMateriasActionPerformed
@@ -168,23 +168,23 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
         jTableConsulta.setModel(modelo);
     }
  
- private void actualizarTabla() {
-//        //setear la tabla para que quede limpia
-      modelo.setRowCount(0);
-     materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
-//        //obtener los alumnos que cursan en la materia  seleccionada
-       List<Inscripcion> listarAl = (List)ida.obtenerAlumnosXMaterias(materiaSeleccionada.getIdMateria());
+// private void actualizarTabla() {
+////        //setear la tabla para que quede limpia
+//      modelo.setRowCount(0);
+//     materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
+////        //obtener los alumnos que cursan en la materia  seleccionada
+//       List<Inscripcion> listarAl = (List)ida.obtenerAlumnosXMaterias(materiaSeleccionada.getIdMateria());
+////
+////        // llenar la tabla con los alumnos 
+//     for (Inscripcion i: listarAl) {
 //
-//        // llenar la tabla con los alumnos 
-     for (Inscripcion i: listarAl) {
-
-            Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
-            if (alumno != null) {
-                modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
-            }
-        }
-
-    }
+//            Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
+//            if (alumno != null) {
+//                modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+//            }
+//        }
+//
+//    }
 
 }
 ////Equipo91

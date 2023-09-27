@@ -68,7 +68,7 @@ public class AlumnoData {
                 alumno.setIdAlumno(idAlumno);
                 alumno.setEstado(true);
                 alumno.setFechaNac(rs.getDate("FechaNac").toLocalDate());
-                System.out.println("alumno encontrado");
+//                System.out.println("alumno encontrado");
 
             } else {
 
