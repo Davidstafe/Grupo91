@@ -72,11 +72,11 @@ public class ProyectoGrupo91Final {
          
 
 
-// 
-       mat= new Materia("inf", 6, true);
-       a.guardarMateria(mat);
-       System.out.println("materias"+ mat);
-        
+//// 
+//       mat= new Materia("inf", 6, true);
+//       a.guardarMateria(mat);
+//       System.out.println("materias"+ mat);
+//        
        
     
        /* BUSCAR MATERIA: CORRECTO
