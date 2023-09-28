@@ -167,30 +167,25 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         jTableConsulta.setModel(modelo);
     }
-//  private void cargarMaterias() {
-// Materia a=(Materia) jCBMaterias.getSelectedItem();
-//      List<Alumno> al  =(ArrayList) ida.obtenerMateriasCursadas(a.getIdMateria());
-//     for (Alumno alu : al) {
-//         modelo.addRow(new Object[]{alu.getIdAlumno(),alu.getDni(),alu.getApellido(),alu.getNombre()});}
-//}
-// private void actualizarTabla() {
-////        //setear la tabla para que quede limpia
-//      modelo.setRowCount(0);
-//     materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
-////        //obtener los alumnos que cursan en la materia  seleccionada
-//       List<Inscripcion> listarAl = (List)ida.obtenerAlumnosXMaterias(materiaSeleccionada.getIdMateria());
-////
-////        // llenar la tabla con los alumnos 
-//     for (Inscripcion i: listarAl) {
-//
-//            Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
-//            if (alumno != null) {
-//                modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
-//            }
-//        }
-//
-//    }
+private void actualizarTabla() {
+        //setear la tabla para que quede limpia
+        modelo.setRowCount(0);
+        materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
+        //obtener los alumnos que cursan en la materia  seleccionada
+        List<Alumno> listarAl = (List) ida.obtenerAlumnosXMaterias(materiaSeleccionada.getIdMateria());
 
+        // llenar la tabla con los alumnos 
+        for (Alumno al : listarAl) {
+
+            Alumno alumno = ad.buscarAlumnoID(al.getIdAlumno());
+            if (alumno != null) {
+                modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+            }
+        }
+
+    }
 }
+
+
 ////Equipo91
 ////acà estamos otra vez
