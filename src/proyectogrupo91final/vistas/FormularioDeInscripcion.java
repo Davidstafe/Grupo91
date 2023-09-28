@@ -232,7 +232,8 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
         datosNoInscriptos();
        jBAnular.setEnabled(false);
         jBInscribir.setEnabled(true);
-       
+//        Inscripcion a=new Inscripcion();
+//       jBInscribir.add(insc.guardarInscripcion());
 
     }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
     private void cargarAlumnos() {

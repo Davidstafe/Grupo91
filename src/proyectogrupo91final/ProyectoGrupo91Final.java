@@ -8,16 +8,23 @@ public class ProyectoGrupo91Final {
 
     public static void main(String[] args) {
 
-      //  System.out.println("hola");
-//        Connection con = Conexion.getConexion();
-//        MateriaData a = new MateriaData();
-//        AlumnoData s = new AlumnoData();
-//        InscripcionData d = new InscripcionData();
-////        
-////        for (Materia materia: d.obtenerMateriasNoCursada(5)) {
-////            System.out.println("nombre = "+materia.getNombre());
-////        }
-//        for (Alumno alumno : d.obtenerAlumnosXMaterias(3)) {
+     
+        Connection con = Conexion.getConexion();
+        MateriaData a = new MateriaData();
+        AlumnoData s = new AlumnoData();
+        InscripcionData d = new InscripcionData();
+//        Inscripcion q=new Inscripcion();
+        Alumno alu=new Alumno();
+        Materia mat=new Materia();
+//        
+//        for (Materia materia: d.obtenerMateriasNoCursada(5)) {
+//            System.out.println("nombre = "+materia.getNombre());
+//        }
+
+
+//
+//// Inscripcion de alumno por materia
+//        for (Alumno alumno : d.obtenerAlumnosXMaterias(1)) {//empieza de cero a contar el idAlumno
 //            System.out.println("nombre del alumno: "+alumno.getApellido());
 //        }
 //        
@@ -58,29 +65,32 @@ public class ProyectoGrupo91Final {
 //            System.out.println(""+listarM.getAnioMateria());
 //            System.out.println(""+listarM.getIdMateria());
 //        }
-       
-//        Alumno Karen=s.buscarAlumnoID(3);
-//        Materia Inf=a.buscarMateria(5);
-//         Inscripcion q=new Inscripcion( 5.3,Karen,  Inf);
 
-
-//       d.guardarInscripcion(q);
+//-------------------------------------------------------------------
+//       //modificar nota
+//        Alumno leon=s.buscarAlumnoID(3);
+//        Materia Informatica45=a.buscarMateria(5);
+//         Inscripcion q=new Inscripcion( 2.2,leon,  Informatica45);
+//   d.guardarInscripcion(q);
      
+   //---------------------------------------------------------------
+//   //BUSCA alumno por id de alumno
+//   
 //        for (Inscripcion inscripcion : d.obtenerInscripcionPorAlumno(4) ) {
 //            System.out.println("id "+inscripcion.getIdInscripcion());
 //            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
 //            System.out.println("Materia "+inscripcion.getMateria().getNombre());
 //        }
-
+//----------------------------------------------------------------------------------------------
 
 
 //d.actualizarNota(8.2, 3, 5);
+//------------------------------------------------------------------------------------------
+//lista de materias           
 
-//       for (Materia materia : listaMateria) {
-//                System.out.println(materia)
-//
-//
-//    }
+for (Materia materia : a.listarMateria()) {
+            System.out.println(materia);
+        }
 //}
 
 //      // Materia a= new Materia(1,"inf", 1, true);

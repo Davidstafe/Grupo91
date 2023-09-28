@@ -130,7 +130,7 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
     private void jCBMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriasActionPerformed
         materiaSeleccionada = (Materia) jCBMaterias.getSelectedItem();
         if (materiaSeleccionada != null) {
-//      actualizarTabla();
+  // actualizarTabla();
            
         }
     }//GEN-LAST:event_jCBMateriasActionPerformed
@@ -151,7 +151,7 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
 
  private void cargarCombo() {
 
-        List<Materia> listMat = as.listarMateria();
+        ArrayList<Materia> listMat = (ArrayList<Materia>) as.listarMateria();
 
         for (Materia materia : listMat) {
 
@@ -167,7 +167,12 @@ public class ConsultaAxM extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         jTableConsulta.setModel(modelo);
     }
- 
+//  private void cargarMaterias() {
+// Materia a=(Materia) jCBMaterias.getSelectedItem();
+//      List<Alumno> al  =(ArrayList) ida.obtenerMateriasCursadas(a.getIdMateria());
+//     for (Alumno alu : al) {
+//         modelo.addRow(new Object[]{alu.getIdAlumno(),alu.getDni(),alu.getApellido(),alu.getNombre()});}
+//}
 // private void actualizarTabla() {
 ////        //setear la tabla para que quede limpia
 //      modelo.setRowCount(0);
