@@ -135,9 +135,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMConsultas);
 
         jMSalir.setText("Salir");
-        jMSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMSalirActionPerformed(evt);
+        jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMSalirMouseClicked(evt);
             }
         });
         jMenuBar1.add(jMSalir);
@@ -215,15 +215,9 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItemFormularioDeMateriaActionPerformed
 
-    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
-
-        dispose();
-
-       
-        System.exit(0);//// què merda pasa que no cierra ?
-        
-
-    }//GEN-LAST:event_jMSalirActionPerformed
+    private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
+      System.exit(0);
+    }//GEN-LAST:event_jMSalirMouseClicked
 
     /**
      * @param args the command line arguments
