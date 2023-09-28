@@ -196,7 +196,7 @@ ps.close();
             ps.setInt(3, idMateria);
 
             int completo = ps.executeUpdate();
-            if (completo > 0) {
+            if (completo ==1) {
                 JOptionPane.showMessageDialog(null, "Nota modificada");
 
             } else {
