@@ -70,6 +70,11 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
                 JCBAlumnoMouseClicked(evt);
             }
         });
+        JCBAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBAlumnoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Listado de materias");
@@ -236,6 +241,10 @@ public class FormularioDeInscripcion extends javax.swing.JInternalFrame {
 //       jBInscribir.add(insc.guardarInscripcion());
 
     }//GEN-LAST:event_jRMateriasNoInscriptasActionPerformed
+
+    private void JCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBAlumnoActionPerformed
     private void cargarAlumnos() {
         for (Alumno alumnos : lisA) {
             JCBAlumno.addItem(alumnos);
